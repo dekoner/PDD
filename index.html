@@ -200,7 +200,7 @@
   function checkAnswer(){
     var countTrueAnswer = 0;
     answers.forEach(function(item, i, arr){
-    alert(i + '. ' + JSON.stringify(item) + '      ' + JSON.stringify(q[i].answer));
+    //alert(i + '. ' + JSON.stringify(item) + '      ' + JSON.stringify(q[i].answer));
       if (JSON.stringify(item) == JSON.stringify(q[i].answer)) {
         countTrueAnswer++;
       }
