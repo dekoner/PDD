@@ -154,19 +154,28 @@
         curAnswer.push(+$(this).val());
       });
     }
-    
+    alert(curAnswer);
   }
-
+  
+  var t;
+  var fl = true;
   function nextQuestion(){
-    curQuestion++;
-    answers.push(curAnswer);
-    curAnswer = -1;
-    //alert(answers);
-    if (curQuestion < q.length) {
-      setQuestion(curQuestion);
-    } else {
-      outResult();
-    }
+	if (fl){
+	  fl = false;
+	  curQuestion++;
+      answers.push(curAnswer);
+      curAnswer = -1;
+      //alert(answers);
+      if (curQuestion < q.length) {
+        setQuestion(curQuestion);
+      } else {
+        outResult();
+      }	
+	}
+	t = setInterval(function(){
+	  fl = true;
+	  clearInterval(t);
+	}, 200);
   }
 
   function setQuestion(num){
@@ -191,7 +200,7 @@
   function checkAnswer(){
     var countTrueAnswer = 0;
     answers.forEach(function(item, i, arr){
-    //alert(i + '. ' + JSON.stringify(item) + '      ' + JSON.stringify(q[i].answer));
+    alert(i + '. ' + JSON.stringify(item) + '      ' + JSON.stringify(q[i].answer));
       if (JSON.stringify(item) == JSON.stringify(q[i].answer)) {
         countTrueAnswer++;
       }
